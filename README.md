@@ -1,5 +1,100 @@
 # System Design Learning
 
+## Table of Contents
+
+1. [Foundations & Fundamentals](#1-foundations--fundamentals)
+   - 1.1 [System Design Introduction](#11-system-design-introduction)
+   - 1.2 [Performance Metrics & Trade-offs](#12-performance-metrics--trade-offs)
+
+2. [Networking & Communication Fundamentals](#2-networking--communication-fundamentals)
+   - 2.1 [Network Basics](#21-network-basics)
+   - 2.2 [DNS & Domain Resolution](#22-dns--domain-resolution)
+   - 2.3 [HTTP & Web Protocols](#23-http--web-protocols)
+   - 2.4 [Proxy & Gateway Patterns](#24-proxy--gateway-patterns)
+
+3. [APIs & Communication Patterns](#3-apis--communication-patterns)
+   - 3.1 [API Design Patterns](#31-api-design-patterns)
+   - 3.2 [Real-time Communication](#32-real-time-communication)
+   - 3.3 [API Management](#33-api-management)
+
+4. [Databases & Data Storage](#4-databases--data-storage)
+   - 4.1 [Database Fundamentals](#41-database-fundamentals)
+   - 4.2 [Database Design & Optimization](#42-database-design--optimization)
+   - 4.3 [Transactions & Consistency](#43-transactions--consistency)
+   - 4.4 [Database Scaling Strategies](#44-database-scaling-strategies)
+   - 4.5 [Database Internals](#45-database-internals)
+
+5. [Caching Strategies](#5-caching-strategies)
+   - 5.1 [Caching Fundamentals](#51-caching-fundamentals)
+   - 5.2 [Caching Patterns](#52-caching-patterns)
+   - 5.3 [Cache Policies & Management](#53-cache-policies--management)
+   - 5.4 [Caching Infrastructure](#54-caching-infrastructure)
+
+6. [Load Balancing & Scaling](#6-load-balancing--scaling)
+   - 6.1 [Scaling Approaches](#61-scaling-approaches)
+   - 6.2 [Load Balancing](#62-load-balancing)
+   - 6.3 [Advanced Scaling Patterns](#63-advanced-scaling-patterns)
+
+7. [System Architecture Patterns](#7-system-architecture-patterns)
+   - 7.1 [Architectural Styles](#71-architectural-styles)
+   - 7.2 [Communication Patterns](#72-communication-patterns)
+   - 7.3 [Advanced Patterns](#73-advanced-patterns)
+
+8. [Message Queues & Event Systems](#8-message-queues--event-systems)
+   - 8.1 [Asynchronous Communication](#81-asynchronous-communication)
+   - 8.2 [Message Queue Systems](#82-message-queue-systems)
+   - 8.3 [Event Streaming Platforms](#83-event-streaming-platforms)
+   - 8.4 [Enterprise Integration](#84-enterprise-integration)
+
+9. [Distributed Systems Concepts](#9-distributed-systems-concepts)
+   - 9.1 [Distributed Systems Fundamentals](#91-distributed-systems-fundamentals)
+   - 9.2 [Consensus & Coordination](#92-consensus--coordination)
+   - 9.3 [Time & Ordering](#93-time--ordering)
+   - 9.4 [Fault Tolerance & Reliability](#94-fault-tolerance--reliability)
+   - 9.5 [Advanced Distributed Concepts](#95-advanced-distributed-concepts)
+
+10. [Data Structures & Algorithms for Systems](#10-data-structures--algorithms-for-systems)
+    - 10.1 [Specialized Data Structures](#101-specialized-data-structures)
+    - 10.2 [Tree Structures](#102-tree-structures)
+    - 10.3 [Hashing & Partitioning](#103-hashing--partitioning)
+    - 10.4 [Search & Indexing](#104-search--indexing)
+
+11. [Big Data & Analytics](#11-big-data--analytics)
+    - 11.1 [Data Processing Paradigms](#111-data-processing-paradigms)
+    - 11.2 [Big Data Technologies](#112-big-data-technologies)
+    - 11.3 [Data Storage Systems](#113-data-storage-systems)
+
+12. [Security](#12-security)
+    - 12.1 [Authentication & Authorization](#121-authentication--authorization)
+    - 12.2 [Security Protocols & Standards](#122-security-protocols--standards)
+    - 12.3 [Network Security](#123-network-security)
+    - 12.4 [Application Security](#124-application-security)
+    - 12.5 [Data Security](#125-data-security)
+
+13. [Cloud & Infrastructure](#13-cloud--infrastructure)
+    - 13.1 [Cloud Computing Models](#131-cloud-computing-models)
+    - 13.2 [Containerization & Orchestration](#132-containerization--orchestration)
+    - 13.3 [Cloud Storage](#133-cloud-storage)
+    - 13.4 [Infrastructure as Code](#134-infrastructure-as-code)
+
+14. [Observability & Operations](#14-observability--operations)
+    - 14.1 [Logging](#141-logging)
+    - 14.2 [Monitoring & Metrics](#142-monitoring--metrics)
+    - 14.3 [Distributed Tracing](#143-distributed-tracing)
+    - 14.4 [Alerting & Incident Response](#144-alerting--incident-response)
+    - 14.5 [Reliability Engineering](#145-reliability-engineering)
+
+15. [Advanced System Design Patterns](#15-advanced-system-design-patterns)
+    - 15.1 [Fan Patterns](#151-fan-patterns)
+    - 15.2 [Retry & Resilience Patterns](#152-retry--resilience-patterns)
+    - 15.3 [Data Synchronization](#153-data-synchronization)
+
+16. [System Design Trade-offs & Decisions](#16-system-design-trade-offs--decisions)
+    - 16.1 [Common Trade-offs](#161-common-trade-offs)
+    - 16.2 [Decision Frameworks](#162-decision-frameworks)
+
+---
+
 ## 1. Foundations & Fundamentals
 
 ### 1.1 System Design Introduction
