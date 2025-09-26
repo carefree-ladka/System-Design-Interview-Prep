@@ -95,7 +95,8 @@
       
 17. [System Design Interview Problems](#17-system-design-interview-problems)
 
----
+18. [System Design Interview Template](#18-system-design-interview-template)
+
 
 ## 1. Foundations & Fundamentals
 
@@ -612,11 +613,13 @@
 3. **Real-time Systems**: Focus on problems 3, 7, 11, 14, 20, 23
 4. **Scalability**: Focus on problems 5, 9, 18, 19, 21, 22
 
----
-
 ## Learning Path Recommendations:
 
 1. **Beginner**: Focus on sections 1-6 (Foundations through Load Balancing)
 2. **Intermediate**: Add sections 7-10 (Architecture Patterns through Data Structures)
 3. **Advanced**: Complete with sections 11-16 (Big Data through Trade-offs)
 4. **Interview Prep**: Emphasize sections 4 (Databases), 6 (Scaling), 9 (Distributed Systems), and 16 (Trade-offs)
+
+## 18. System Design Interview Template
+
+<img width="4823" height="1870" alt="system design2" src="https://github.com/user-attachments/assets/f9ef0da1-86e7-4821-ab41-ef0cc11d047c" />
