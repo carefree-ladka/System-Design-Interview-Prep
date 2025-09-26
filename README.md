@@ -92,6 +92,8 @@
 16. [System Design Trade-offs & Decisions](#16-system-design-trade-offs--decisions)
     - 16.1 [Common Trade-offs](#161-common-trade-offs)
     - 16.2 [Decision Frameworks](#162-decision-frameworks)
+      
+17. [System Design Interview Problems](#17-system-design-interview-problems)
 
 ---
 
