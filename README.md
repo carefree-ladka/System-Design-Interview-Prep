@@ -97,6 +97,24 @@
 
 18. [System Design Interview Template](#18-system-design-interview-template)
 
+19. [System Design Practice Problems](#19-system-design-practice-problems)
+    - 19.1 [Design a Rate Limiter](#191-design-a-rate-limiter)
+    - 19.2 [Design a URL Shortener (Bitly)](#192-design-a-url-shortener-bitly)
+    - 19.3 [Design a Twitter / Feed System](#193-design-a-twitter--feed-system)
+    - 19.4 [Design WhatsApp / Messaging App](#194-design-whatsapp--messaging-app)
+    - 19.5 [Design Instagram / Photo Sharing](#195-design-instagram--photo-sharing)
+    - 19.6 [Design YouTube / Video Streaming](#196-design-youtube--video-streaming)
+    - 19.7 [Design an E-commerce Platform](#197-design-an-e-commerce-platform)
+    - 19.8 [Design Uber / Ride-Sharing](#198-design-uber--ride-sharing)
+    - 19.9 [Design a Notification System](#199-design-a-notification-system)
+    - 19.10 [Design an Online Collaborative Editor](#1910-design-an-online-collaborative-editor)
+    - 19.11 [Design a File Storage System (Dropbox / Google Drive)](#1911-design-a-file-storage-system-dropbox--google-drive)
+    - 19.12 [Design a Leaderboard / Ranking System](#1912-design-a-leaderboard--ranking-system)
+    - 19.13 [Design a Search Engine / Autocomplete](#1913-design-a-search-engine--autocomplete)
+    - 19.14 [Design a Payment Gateway](#1914-design-a-payment-gateway)
+    - 19.15 [Design a Job Scheduler](#1915-design-a-job-scheduler)
+
+
 
 ## 1. Foundations & Fundamentals
 
@@ -625,4 +643,67 @@
 <img width="4823" height="1870" alt="system design2" src="https://github.com/user-attachments/assets/f9ef0da1-86e7-4821-ab41-ef0cc11d047c" />
 
 > ⚠️ **Note:**  Data Flow (step 4) is optional and only needed for data processing systems.
+
+## 19. System Design Practice Problems
+
+### 19.1 Design a Rate Limiter
+- Handle request limits per user/IP.
+- Discuss fixed window, sliding window, token bucket, leaky bucket.
+- Scaling across distributed servers.
+
+### 19.2 Design a URL Shortener (Bitly)
+- Unique key generation, database schema, redirection latency.
+- Analytics, caching, handling collisions.
+
+### 19.3 Design a Twitter / Feed System
+- Timeline generation, fan-out vs fan-in, caching.
+- Database sharding, read/write scaling.
+
+### 19.4 Design WhatsApp / Messaging App
+- Real-time message delivery, offline messages.
+- End-to-end encryption, group messaging, message queues.
+
+### 19.5 Design Instagram / Photo Sharing
+- Image upload & storage, CDN, feed generation.
+- Likes, comments, indexing, caching.
+
+### 19.6 Design YouTube / Video Streaming
+- Video storage, transcoding, adaptive streaming.
+- CDN, recommendation engine, search indexing.
+
+### 19.7 Design an E-commerce Platform
+- Product catalog, search, order management.
+- Inventory tracking, payment gateway integration, caching.
+
+### 19.8 Design Uber / Ride-Sharing
+- Geo-location, real-time matching, surge pricing.
+- Distributed system design, scaling riders & drivers.
+
+### 19.9 Design a Notification System
+- Push/email/SMS, fan-out, queueing.
+- Retry mechanism, rate limiting, scalability.
+
+### 19.10 Design an Online Collaborative Editor
+- Real-time collaboration, operational transforms / CRDTs.
+- Conflict resolution, consistency across multiple users.
+
+### 19.11 Design a File Storage System (Dropbox / Google Drive)
+- Upload/download, versioning, replication, deduplication.
+- Consistency, latency, scaling reads/writes.
+
+### 19.12 Design a Leaderboard / Ranking System
+- Real-time updates, sorting, caching.
+- Distributed counters, scale considerations.
+
+### 19.13 Design a Search Engine / Autocomplete
+- Indexing, query processing, ranking.
+- Caching, sharding, low-latency suggestions.
+
+### 19.14 Design a Payment Gateway
+- ACID transactions, consistency, high availability.
+- Fraud detection, scaling with many concurrent transactions.
+
+### 19.15 Design a Job Scheduler
+- Cron jobs, DAG execution, retries.
+- Distributed execution, monitoring, fault tolerance.
 
