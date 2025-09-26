@@ -603,7 +603,7 @@
 #### Search & Discovery
 - Search Engine / Autocomplete
 - Recommendation System
-- URL Shortener (Bitly)
+- URL Shortener (like TinyURL, Bitly) – hashing, redirection, DB sharding
 
 #### Infrastructure & Backend Services
 - Notification System
@@ -611,6 +611,7 @@
 - Job Scheduler (Airflow-like)
 - Email / SMS Queue System
 - URL Caching / CDN Design
+- Rate Limiter (API gateway level) – token bucket, sliding window, Redis.
 
 #### Specialized Systems
 - Online Collaborative Editor (Google Docs)
