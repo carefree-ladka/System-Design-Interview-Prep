@@ -523,6 +523,93 @@
 - Risk Assessment
 - Scalability Planning
 
+
+## 17. System Design Interview Problems
+
+### 17.1 High-Frequency System Design Problems
+
+| # | System | Key Focus Areas | Difficulty |
+|---|--------|-----------------|------------|
+| 1 | **Twitter / Feed System** | Timeline generation, fan-out vs fan-in, caching, database sharding, rate limits | Medium |
+| 2 | **Instagram / Photo Sharing** | Image upload & storage, CDN, feed generation, likes/comments, database indexing | Medium |
+| 3 | **WhatsApp / Messaging App** | Real-time delivery, message queue, end-to-end encryption, offline support, read receipts | Hard |
+| 4 | **Facebook News Feed** | Ranking algorithms, caching, personalization, batch vs real-time processing | Hard |
+| 5 | **YouTube / Video Streaming** | Video storage, streaming, transcoding, CDN, recommendation engine | Hard |
+| 6 | **Netflix / Video Streaming** | Adaptive streaming, caching, load balancing, recommendation engine | Hard |
+| 7 | **Uber / Ride-Sharing** | Geo-location, matching algorithm, surge pricing, real-time updates, distributed systems | Hard |
+| 8 | **Food Delivery System** | Menu management, orders, delivery tracking, notifications, database design | Medium |
+| 9 | **E-commerce Platform (Amazon)** | Product catalog, search, order management, payment system, inventory tracking | Hard |
+| 10 | **URL Shortener (Bitly)** | Unique key generation, database schema, caching, redirection latency, analytics | Easy |
+| 11 | **Online Collaborative Editor (Google Docs)** | Real-time collaboration, operational transformation / CRDTs, conflict resolution | Hard |
+| 12 | **File Storage System (Dropbox / Google Drive)** | File upload/download, versioning, replication, deduplication, consistency | Medium |
+| 13 | **Recommendation System** | Collaborative filtering, content-based filtering, caching, personalization, ML integration | Medium |
+| 14 | **Notification System** | Push/email/SMS, fan-out, queueing, retries, rate limiting | Medium |
+| 15 | **Payment Gateway (PayPal / Stripe)** | ACID transactions, consistency, fraud detection, high availability | Hard |
+| 16 | **Leaderboard / Ranking System** | Real-time updates, caching, sorting large datasets, distributed counters | Medium |
+| 17 | **URL Caching / CDN Design** | Caching strategy, TTL, cache invalidation, geo-replication, performance | Medium |
+| 18 | **Logging / Analytics System** | Event ingestion, batching, storage, indexing, query optimization | Medium |
+| 19 | **Search Engine / Autocomplete** | Indexing, query processing, ranking, caching, sharding, latency optimization | Hard |
+| 20 | **Online Multiplayer Game Server** | State synchronization, matchmaking, latency handling, consistency | Hard |
+| 21 | **Email / SMS Queue System** | Queueing, retries, batching, deduplication, throughput scaling | Medium |
+| 22 | **Job Scheduler (Airflow-like)** | Cron jobs, DAG execution, retries, distributed execution, monitoring | Medium |
+| 23 | **Stock Trading System** | Real-time updates, order matching, high throughput, consistency, latency | Hard |
+| 24 | **Pastebin / Gist** | Data storage, unique key generation, expiration, scaling reads/writes | Easy |
+| 25 | **Event Ticketing System** | Seat reservation, concurrency, high availability, payment integration, scaling | Medium |
+
+### 17.2 Problem Categories
+
+#### Social Networks & Messaging
+- Twitter / Feed System
+- Instagram / Photo Sharing
+- WhatsApp / Messaging App
+- Facebook News Feed
+
+#### Content & Streaming Platforms
+- YouTube / Video Streaming
+- Netflix / Video Streaming
+- File Storage System (Dropbox / Google Drive)
+
+#### Real-time & Location Services
+- Uber / Ride-Sharing
+- Food Delivery System
+- Online Multiplayer Game Server
+
+#### E-commerce & Marketplace
+- E-commerce Platform (Amazon)
+- Payment Gateway (PayPal / Stripe)
+- Event Ticketing System
+
+#### Search & Discovery
+- Search Engine / Autocomplete
+- Recommendation System
+- URL Shortener (Bitly)
+
+#### Infrastructure & Backend Services
+- Notification System
+- Logging / Analytics System
+- Job Scheduler (Airflow-like)
+- Email / SMS Queue System
+- URL Caching / CDN Design
+
+#### Specialized Systems
+- Online Collaborative Editor (Google Docs)
+- Leaderboard / Ranking System
+- Stock Trading System
+- Pastebin / Gist
+
+### 17.3 Interview Preparation Strategy
+
+#### By Difficulty Level
+- **Start with Easy (2 problems)**: URL Shortener, Pastebin
+- **Progress to Medium (11 problems)**: Instagram, Food Delivery, File Storage, Recommendation System, Notification System, Leaderboard, CDN Design, Analytics System, Email Queue, Job Scheduler
+- **Master Hard (12 problems)**: Twitter, WhatsApp, Facebook Feed, YouTube, Netflix, Uber, E-commerce, Google Docs, Payment Gateway, Search Engine, Game Server, Stock Trading
+
+#### Key Preparation Areas
+1. **Database Design**: Focus on problems 1, 2, 8, 9, 12, 15
+2. **Caching Strategies**: Focus on problems 1, 4, 6, 10, 16, 17
+3. **Real-time Systems**: Focus on problems 3, 7, 11, 14, 20, 23
+4. **Scalability**: Focus on problems 5, 9, 18, 19, 21, 22
+
 ---
 
 ## Learning Path Recommendations:
