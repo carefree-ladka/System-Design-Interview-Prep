@@ -623,3 +623,6 @@
 ## 18. System Design Interview Template
 
 <img width="4823" height="1870" alt="system design2" src="https://github.com/user-attachments/assets/f9ef0da1-86e7-4821-ab41-ef0cc11d047c" />
+
+> ⚠️ **Note:**  Data Flow (step 4) is optional and only needed for data processing systems.
+
