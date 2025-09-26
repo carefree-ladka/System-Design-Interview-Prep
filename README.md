@@ -96,8 +96,17 @@
 17. [System Design Interview Problems](#17-system-design-interview-problems)
 
 18. [System Design Interview Template](#18-system-design-interview-template)
+    - [Requirements](#181-requirements)
+      - [Functional Requirements](#1811-functional-requirements)
+      - [Non Functional Requirements](#1812-non-functional-requirements)
+      - [Capacity Estimation](#1813-capacity-estimation)
+    - [Core Entities](#182-core-entities)
+    - [API or Interface](#183-api-or-interface)
+    - [Data Flow](#184-data-flow)
+    - [High Level Design](#185-high-level-design)
+    - [Deep Dives](#186-deep-dives)
 
-19. [System Design Practice Problems](#19-system-design-practice-problems)
+20. [System Design Practice Problems](#19-system-design-practice-problems)
     - 19.1 [Design a Rate Limiter](#191-design-a-rate-limiter)
     - 19.2 [Design a URL Shortener (Bitly)](#192-design-a-url-shortener-bitly)
     - 19.3 [Design a Twitter / Feed System](#193-design-a-twitter--feed-system)
@@ -644,6 +653,19 @@
 <img width="4823" height="1870" alt="system design2" src="https://github.com/user-attachments/assets/f9ef0da1-86e7-4821-ab41-ef0cc11d047c" />
 
 > ⚠️ **Note:**  Data Flow (step 4) is optional and only needed for data processing systems.
+### 18.1 Requirements
+
+#### 18.1.1 Functional Requirements
+
+#### 18.1.2 Non Functional Requirements
+
+#### 18.1.3 Capacity Estimation
+
+### 18.2 Core Entities
+### 18.3 API or Interface
+### 18.4 Data Flow
+### 18.5 High Level Design
+### 18.6 Deep Dives
 
 ## 19. System Design Practice Problems
 
