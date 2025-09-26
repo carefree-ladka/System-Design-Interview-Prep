@@ -655,11 +655,527 @@
 > ⚠️ **Note:**  Data Flow (step 4) is optional and only needed for data processing systems.
 ### 18.1 Requirements
 
-#### 18.1.1 Functional Requirements
+### 18.1.1 Functional Requirements
 
-#### 18.1.2 Non Functional Requirements
+### What does the system DO?
 
-#### 18.1.3 Capacity Estimation
+#### Core Features
+- What are the primary features users need?
+- What actions can users perform?
+- What data does the system process?
+- What workflows must be supported?
+
+#### User Interactions
+- Who are the different types of users?
+- What can each user type do?
+- How do users authenticate and authorize?
+- What permissions/roles are needed?
+
+#### Data Operations
+- What data needs to be created, read, updated, deleted?
+- How is data structured and related?
+- What business rules govern the data?
+- What validations are required?
+
+#### Integration & APIs
+- What external systems need integration?
+- What APIs need to be exposed?
+- What data formats are required (JSON, XML)?
+- What third-party services are needed?
+
+#### Example Questions for Different Systems
+
+**Social Media Platform:**
+- Can users post text, images, videos?
+- How do users follow/unfollow others?
+- What privacy controls exist?
+- How does the feed algorithm work?
+
+**E-commerce:**
+- How do users search and filter products?
+- What's the checkout process?
+- How are payments processed?
+- What inventory management is needed?
+
+**Chat Application:**
+- What message types are supported?
+- How do group chats work?
+- Are there message reactions/replies?
+- What about file sharing?
+
+### 18.1.2 Non Functional Requirements
+
+### HOW WELL does the system perform?
+
+#### Performance & Scalability
+- **Users**: How many daily/monthly active users?
+- **Traffic**: What's the expected requests per second?
+- **Response Time**: What latency is acceptable?
+- **Throughput**: How much data volume per day?
+- **Growth**: What's the expected growth rate?
+
+**Key Questions:**
+- What's the peak traffic multiplier?
+- Are there seasonal/event-driven spikes?
+- What's acceptable response time for different operations?
+- How much data will be processed daily?
+
+#### Availability & Reliability
+- **Uptime**: What availability percentage is required?
+- **Disaster Recovery**: How quickly must system recover?
+- **Data Loss**: What's acceptable data loss tolerance?
+- **Failure Handling**: How should failures be managed?
+
+**Key Questions:**
+- Is this a mission-critical system?
+- What's the cost of downtime?
+- Are there maintenance windows?
+- What backup and recovery needs exist?
+
+#### Security & Privacy
+- **Authentication**: How do users prove identity?
+- **Authorization**: What access controls are needed?
+- **Data Protection**: What data needs encryption?
+- **Compliance**: What regulations apply (GDPR, HIPAA)?
+
+**Key Questions:**
+- What sensitive data is handled?
+- Are there geographic data restrictions?
+- What audit logging is required?
+- How long is data retained?
+
+#### Consistency & Data Integrity
+- **ACID**: Are database transactions required?
+- **CAP Theorem**: Consistency vs Availability trade-offs?
+- **Eventual Consistency**: Is delayed consistency acceptable?
+- **Data Validation**: What integrity checks are needed?
+
+**Key Questions:**
+- Is real-time consistency critical?
+- Can you tolerate stale data for performance?
+- What happens during network partitions?
+- How important is data accuracy vs speed?
+
+## Question Framework by System Type
+
+### Real-Time Systems (Chat, Gaming)
+**Functional:**
+- What real-time features are needed?
+- How do you handle message ordering?
+- What offline capabilities exist?
+
+**Non-Functional:**
+- What's acceptable message delay?
+- How many concurrent connections?
+- Is global real-time sync needed?
+
+### Data-Heavy Systems (Analytics, Search)
+**Functional:**
+- What queries/searches are supported?
+- How is data aggregated and reported?
+- What export/import capabilities exist?
+
+**Non-Functional:**
+- How much data volume daily?
+- What query response times are acceptable?
+- How often is data updated?
+
+### Content Systems (Social Media, Video)
+**Functional:**
+- What content types are supported?
+- How is content moderated?
+- What recommendation features exist?
+
+**Non-Functional:**
+- What's the read:write ratio?
+- How is content distributed globally?
+- What bandwidth requirements exist?
+
+### For System Design Interviews
+
+**Opening Questions:**
+- "What's the main purpose of this system?"
+- "Who are the primary users?"
+- "What's the expected scale (users, data)?"
+
+**Functional Deep Dive:**
+- "Walk me through a typical user flow"
+- "What are the core features we must support?"
+- "Are there any complex business rules?"
+
+**Non-Functional Clarification:**
+- "What's more important: consistency or availability?"
+- "What response time do users expect?"
+- "How much downtime is acceptable?"
+
+**Scope Management:**
+- "What can we defer to v2?"
+- "Are there existing systems to integrate with?"
+- "What's out of scope for this design?"
+
+## Red Flags & Follow-up Questions
+
+### When Requirements Are Vague
+- "Can you give me a specific example?"
+- "What would a typical user session look like?"
+- "What happens in the worst-case scenario?"
+
+### When Scale Is Unclear
+- "How many users in year 1 vs year 3?"
+- "What's the peak traffic pattern?"
+- "How much data do you expect to store?"
+
+### When Priorities Conflict
+- "If we had to choose between X and Y, which is more critical?"
+- "What's the business impact if this feature is delayed?"
+- "Can we start simple and add complexity later?"
+
+## Quick Reference
+
+### Functional = WHAT
+- Features, workflows, business logic
+- User interactions and permissions
+- Data operations and validations
+- API endpoints and integrations
+
+### Non-Functional = HOW WELL
+- Performance (speed, throughput)
+- Scalability (growth handling)
+- Reliability (uptime, recovery)
+- Security (protection, compliance)
+- Usability (user experience)
+- Maintainability (code quality, docs)
+
+### 18.1.3 Capacity Estimation
+
+Capacity estimation is a critical skill for system design interviews and real-world system planning. This guide provides formulas, examples, and practical tips for estimating the resources your system will need.
+
+## 1. Traffic / Requests Per Second (RPS)
+
+### Goal
+Estimate how many requests your system handles per second.
+
+### Formula
+```
+RPS = Total Requests per Day / (24 × 3600)
+```
+
+### Example
+- 1M DAU (Daily Active Users)
+- 10 requests per user per day
+
+```
+1,000,000 × 10 = 10,000,000 requests/day
+RPS = 10,000,000 / 86400 ≈ 116 req/sec
+```
+
+### Key Considerations
+- **Peak Factor**: Multiply RPS by 2–5× to account for traffic spikes
+- **Read vs Write Ratio**: Often 100:1 for social media, 10:1 for e-commerce
+- **Geographic Distribution**: Consider time zones for global applications
+
+### Common Traffic Patterns
+- **Social Media**: High evening peaks, weekend spikes
+- **Business Apps**: Weekday 9-5 patterns
+- **Entertainment**: Evening and weekend heavy
+- **E-commerce**: Holiday and sale event spikes
+
+## 2. Storage Estimation
+
+### Goal
+Estimate the total data stored over time.
+
+### Formulas
+```
+Storage per Day = Number of Items per Day × Size per Item
+Total Storage = Storage per Day × Retention Days
+```
+
+### Example
+- 1M photos/day, each 3 MB
+
+```
+1,000,000 × 3 MB = 3,000,000 MB/day ≈ 3 TB/day
+1-year retention ≈ 3 TB/day × 365 ≈ 1,095 TB ≈ 1.1 PB
+```
+
+### Storage Types & Considerations
+
+#### Hot vs Cold Storage
+- **Hot Storage**: Frequently accessed (last 30 days) - expensive, fast
+- **Warm Storage**: Occasionally accessed (30 days - 1 year) - moderate cost
+- **Cold Storage**: Rarely accessed (>1 year) - cheap, slow retrieval
+
+#### Data Growth Patterns
+- **Linear Growth**: Consistent daily additions (logs, user data)
+- **Exponential Growth**: Viral content, social networks
+- **Seasonal Growth**: E-commerce, entertainment platforms
+
+### Common File Sizes
+- **Text post**: 1-10 KB
+- **Image (compressed)**: 100 KB - 5 MB
+- **Video (1080p, 1 min)**: 50-100 MB
+- **Audio (MP3, 3 min)**: 3-5 MB
+- **Document (PDF)**: 100 KB - 10 MB
+
+## 3. Bandwidth / Network Throughput
+
+### Goal
+Estimate required network bandwidth for data transfer.
+
+### Formula
+```
+Bandwidth (Bytes/sec) = RPS × Average Request Size
+```
+
+### Example
+- RPS = 1000
+- Each request = 100 KB
+
+```
+1000 × 100 KB = 100,000 KB/s ≈ 97.7 MB/s
+```
+
+### Bandwidth Considerations
+- **CDN Usage**: Reduces origin server bandwidth by 80-95%
+- **Compression**: Gzip can reduce text by 60-80%
+- **Regional Distribution**: Multiple data centers reduce per-region bandwidth
+- **Peak vs Average**: Plan for 3-5× peak bandwidth
+
+### Network Latency Impact
+- **Same datacenter**: 0.5-2 ms
+- **Same region**: 5-20 ms
+- **Cross-continent**: 100-300 ms
+- **Satellite**: 500-700 ms
+
+## 4. Compute / CPU Requirements
+
+### Goal
+Estimate processing power required to handle the load.
+
+### Formulas
+```
+CPU-seconds/sec = RPS × CPU time per request (seconds)
+Number of CPUs required = CPU-seconds/sec / CPU capacity per core
+```
+
+### Example
+- RPS = 500
+- CPU time per request = 50 ms = 0.05 s
+
+```
+500 × 0.05 = 25 CPU-seconds/sec
+If 1 CPU core = 1 CPU-second/sec, need 25 cores
+```
+
+### CPU Estimation Guidelines
+
+#### Operation Complexity
+- **Simple CRUD**: 10-50 ms CPU time
+- **Complex queries**: 100-500 ms
+- **Image processing**: 1-10 seconds
+- **ML inference**: 100 ms - 10 seconds
+- **Video encoding**: 10 seconds - minutes
+
+#### Scaling Factors
+- **Algorithm complexity**: O(1) vs O(n) vs O(log n)
+- **Database optimization**: Indexes, query optimization
+- **Caching hit rate**: 80-95% cache hits dramatically reduce CPU
+
+### Modern CPU Considerations
+- **Multi-core scaling**: Not all tasks parallelize perfectly
+- **Hyperthreading**: ~30% performance boost
+- **CPU architecture**: ARM vs x86 performance differences
+- **Containerization overhead**: 5-10% performance impact
+
+## 5. Memory Requirements
+
+### Goal
+Estimate RAM usage for in-memory data, caches, and active sessions.
+
+### Formula
+```
+Memory = Number of Concurrent Items × Size per Item
+```
+
+### Example
+- 10k concurrent sessions
+- Each session ~1 KB
+
+```
+10,000 × 1 KB = 10 MB
+```
+
+### Memory Usage Patterns
+
+#### Application Memory
+- **JVM heap**: 2-8 GB typical
+- **Node.js**: 100 MB - 2 GB
+- **Python**: 50-500 MB
+- **Go**: 10-200 MB
+- **C++**: 10-100 MB
+
+#### Caching Strategy
+- **Redis/Memcached**: 80% of memory for data
+- **Cache hit ratio**: Target 95%+ for hot data
+- **Cache eviction**: LRU, LFU, TTL-based
+
+#### Memory Estimation Rules
+- **Session data**: 1-10 KB per active user
+- **Database connections**: 1-10 MB per connection
+- **Cache memory**: 20-50% of total data for optimal hit rate
+- **OS overhead**: Reserve 10-20% for system processes
+
+## 6. System Design Interview Workflow
+
+### Step-by-Step Process
+
+#### 1. Define Scope
+- What specific feature or operation?
+- What are the constraints?
+- What's the expected scale?
+
+#### 2. Estimate Traffic
+```
+DAU → Daily Requests → RPS → Peak RPS
+```
+
+#### 3. Estimate Storage
+```
+Data per day × Retention period = Total storage
+```
+
+#### 4. Estimate Bandwidth
+```
+RPS × Average response size = Bandwidth needed
+```
+
+#### 5. Estimate Compute & Memory
+```
+CPU time per request × RPS = Total CPU needed
+Concurrent users × Memory per user = Total memory
+```
+
+#### 6. Add Safety Margins
+- **Traffic**: 2-5× for peak handling
+- **Storage**: 20-30% for overhead and growth
+- **Compute**: 50-100% for redundancy
+- **Memory**: 30-50% for garbage collection and buffers
+
+## 7. Reference Numbers & Quick Calculations
+
+### Availability and Reliability
+| Availability | Downtime per Year |
+|--------------|------------------|
+| 99%          | 3.6 days         |
+| 99.9%        | 8.8 hours        |
+| 99.99%       | 52 minutes       |
+| 99.999%      | 5 minutes        |
+| 99.9999%     | 31 seconds       |
+
+### Operation Latencies
+| Operation | Time |
+|-----------|------|
+| L1 cache reference | 0.5 ns |
+| Main memory reference | 100 ns |
+| Send 1KB over 1 Gbps network | 10 μs |
+| Read 4KB randomly from SSD | 150 μs |
+| Round trip within datacenter | 500 μs |
+| Read 1MB sequentially from SSD | 1 ms |
+| HDD seek | 10 ms |
+| Send packet CA→Netherlands→CA | 150 ms |
+
+### Data Size Powers of 10
+| Power | Approximate Value | Full Name | Short Name |
+|-------|------------------|-----------|------------|
+| 10³   | 1 Thousand       | 1 Kilobyte | 1 KB |
+| 10⁶   | 1 Million        | 1 Megabyte | 1 MB |
+| 10⁹   | 1 Billion        | 1 Gigabyte | 1 GB |
+| 10¹²  | 1 Trillion       | 1 Terabyte | 1 TB |
+| 10¹⁵  | 1 Quadrillion    | 1 Petabyte | 1 PB |
+
+## 8. Advanced Estimation Techniques
+
+### Probabilistic Models
+- **Poisson distribution** for request arrivals
+- **Pareto principle** (80/20 rule) for data access patterns
+- **Normal distribution** for response times
+
+### Machine Learning Workloads
+```
+Training: GPU hours = Dataset size × Model complexity × Epochs
+Inference: CPU/GPU time = Model size × Input size × Batch size
+```
+
+### Database Sizing
+```
+IOPS needed = (Reads/sec × Read IOPS) + (Writes/sec × Write IOPS)
+Connection pool size = (Average response time × RPS) / 1000
+```
+
+### Microservices Considerations
+- **Service mesh overhead**: 10-15% latency increase
+- **Network calls**: Each hop adds 1-5ms
+- **Circuit breaker**: Plan for 95-99% upstream availability
+
+## 9. Common Estimation Mistakes to Avoid
+
+### Underestimating Factors
+- **Peak traffic**: Using average instead of peak
+- **Data growth**: Linear vs exponential growth patterns
+- **Failure scenarios**: Not accounting for redundancy needs
+- **Operational overhead**: Monitoring, logging, backups
+
+### Overestimating Factors
+- **Perfect scaling**: Assuming linear scalability
+- **Cache hit rates**: Assuming unrealistic 99%+ hit rates
+- **Network efficiency**: Ignoring protocol overhead
+- **Compression ratios**: Overestimating compression benefits
+
+### Real-World Adjustments
+- **Safety margins**: Always add 2-3× capacity buffer
+- **Geographic distribution**: Account for data locality
+- **Regulatory requirements**: Data residency, audit logs
+- **Business growth**: Plan for 2-5 years of growth
+
+## 10. Practical Examples
+
+### Social Media Platform
+```
+100M DAU, 50 posts viewed per day
+RPS: 100M × 50 / 86400 ≈ 58K requests/sec
+Peak: 58K × 3 ≈ 174K requests/sec
+Storage: 100M users × 1MB profile + posts = 100TB
+Bandwidth: 174K × 10KB response ≈ 1.7GB/sec
+```
+
+### Video Streaming Service
+```
+10M concurrent viewers, 5Mbps average bitrate
+Bandwidth: 10M × 5Mbps = 50Tbps
+Storage: 100K hours content × 10GB/hour = 1PB
+CDN: 95% cache hit rate reduces origin load by 20×
+```
+
+### E-commerce Platform
+```
+1M DAU, 20 page views, 5% conversion
+RPS: 1M × 20 / 86400 ≈ 231 requests/sec
+Peak (Black Friday): 231 × 10 = 2310 requests/sec
+Orders: 1M × 0.05 = 50K orders/day
+Database: 50K × 5KB order = 250MB/day
+```
+
+## Summary
+
+Capacity estimation is both an art and a science. Start with basic calculations, add realistic safety margins, and always validate assumptions with actual measurements. Remember that systems rarely fail due to average load—they fail during peak traffic, so always plan for the worst-case scenarios.
+
+### Key Takeaways
+1. **Start simple**: Use powers of 10 for quick mental math
+2. **Be realistic**: Add safety margins for peaks and growth
+3. **Think end-to-end**: Consider all system components
+4. **Validate assumptions**: Real-world data beats estimates
+5. **Plan for failure**: Design for redundancy and scaling
 
 ### 18.2 Core Entities
 ### 18.3 API or Interface
